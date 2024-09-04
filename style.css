@@ -1,11 +1,13 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(135deg, #f0f0f0, #d6e0f5);
     color: #333;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
 }
 
 /* Container for the entire content */
@@ -13,17 +15,34 @@ div {
     padding: 20px;
     margin: 20px auto;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Headings */
 h1, h2, h4 {
-    color: #ec2121;
+    color: #1158aa;
     text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
 }
 
-.algo {
+h1::after, h2::after, h4::after {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background-color: #1158aa;
+    display: block;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Algorithm Sections (Generalized) */
+.algo, .tri, .bi_directional {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -31,42 +50,57 @@ h1, h2, h4 {
     gap: 20px;
 }
 
-.algo > div {
+.algo > div, .tri > div, .bi_directional > div {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 100%;
     max-width: 750px;
     flex: 1 1 calc(50% - 40px);
     box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.tri {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
-    gap: 20px;
+.algo > div::before, .tri > div::before, .bi_directional > div::before {
+    content: '';
+    position: absolute;
+    top: -75%;
+    left: -75%;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(17, 88, 170, 0.05);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    z-index: -1;
 }
 
-.tri > div {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 750px;
-    flex: 1 1 calc(50% - 40px);
-    box-sizing: border-box;
+.algo > div:hover::before, .tri > div:hover::before, .bi_directional:hover::before {
+    top: 0;
+    left: 0;
+    transform: rotate(0);
+}
+
+.algo > div:hover, .tri > div:hover, .bi_directional:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: #f8f8f8;
 }
 
 /* Paragraphs */
 p {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.8;
     margin: 10px 0;
-    text-align: justify;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.algo > div:hover p, .tri > div:hover p, .bi_directional > div:hover p {
+    color: #555;
 }
 
 /* Images (GIFs) */
@@ -75,26 +109,44 @@ img {
     margin: 20px auto;
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Ordered List inside Bidirectional Search section */
 li {
     margin: 10px 0;
+    transition: color 0.3s ease;
+    text-align: left; /* Centering does not suit list items */
 }
 
 ol {
     margin-left: 20px;
 }
 
+ol li:hover {
+    color: #1158aa;
+}
 
 /* Styling for the YouTube iframes */
 iframe {
     display: block;
     margin: 20px auto;
     max-width: 100%;
-    border-radius: 4px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Trifusion Section Specific */
@@ -102,8 +154,25 @@ h4 {
     margin-top: 20px;
     font-size: 18px;
     text-decoration: underline;
-    text-align: left;
+    text-align: center;
     color: #34495e;
+    position: relative;
+}
+
+h4::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    width: 50px;
+    height: 2px;
+    background-color: #34495e;
+    transition: width 0.3s ease;
+}
+
+h4:hover::after {
+    width: 100%;
 }
 
 /* Prototype Overview */
@@ -129,5 +198,17 @@ div:last-of-type {
     iframe {
         width: 100%;
         height: auto;
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

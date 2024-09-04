@@ -1,0 +1,133 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #e0dcdc;
+    color: #333;
+}
+
+/* Container for the entire content */
+div {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2, h4 {
+    color: #1158aa;
+    text-align: center;
+}
+
+.algo,.bi_directional   {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    gap: 20px;
+}
+
+.algo,.bi_directional > div {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 750px;
+    flex: 1 1 calc(50% - 40px);
+    box-sizing: border-box;
+}
+
+.tri {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    gap: 20px;
+}
+
+.tri > div {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 750px;
+    flex: 1 1 calc(50% - 40px);
+    box-sizing: border-box;
+}
+
+/* Paragraphs */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+/* Images (GIFs) */
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ordered List inside Bidirectional Search section */
+li {
+    margin: 10px 0;
+}
+
+ol {
+    margin-left: 20px;
+}
+
+
+/* Styling for the YouTube iframes */
+iframe {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+/* Trifusion Section Specific */
+h4 {
+    margin-top: 20px;
+    font-size: 18px;
+    text-decoration: underline;
+    text-align: left;
+    color: #34495e;
+}
+
+/* Prototype Overview */
+div:last-of-type {
+    margin-bottom: 50px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    div {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    h1, h2, h4 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+}
