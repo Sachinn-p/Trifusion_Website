@@ -84,7 +84,7 @@ h1::after, h2::after, h4::after {
     transform: rotate(0);
 }
 
-.algo > div:hover, .tri > div:hover, .bi_directional:hover {
+.algo > div:hover, .tri > div:hover, .bi_directional:hover , .BI > div:hover , .diff > div:hover , .Trifusions > div:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     background-color: #f8f8f8;
@@ -99,7 +99,7 @@ p {
     transition: color 0.3s ease;
 }
 
-.algo > div:hover p, .tri > div:hover p, .bi_directional > div:hover p {
+.algo > div:hover p, .tri > div:hover p, .bi_directional > div:hover p .BI > div:hover p, .diff > div:hover p, .Trifusions > div:hover p{
     color: #555;
 }
 
