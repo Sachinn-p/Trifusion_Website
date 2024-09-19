@@ -31,6 +31,10 @@ h1, h2, h4 {
     position: relative;
 }
 
+h3{
+    font-style: bold;
+}
+
 h1::after, h2::after, h4::after {
     content: '';
     width: 50px;
