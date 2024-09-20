@@ -7,18 +7,24 @@ body {
     background: linear-gradient(135deg, #f0f0f0, #d6e0f5);
     color: #333;
     overflow-x: hidden;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Container for the entire content */
 div {
     padding: 20px;
     margin: 20px auto;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
     animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Headings */
@@ -29,10 +35,7 @@ h1, h2, h4 {
     font-weight: 700;
     text-transform: uppercase;
     position: relative;
-}
-
-h3{
-    font-style: bold;
+    font-size: 28px;
 }
 
 h1::after, h2::after, h4::after {
@@ -43,6 +46,8 @@ h1::after, h2::after, h4::after {
     display: block;
     margin: 10px auto;
     border-radius: 2px;
+    opacity: 0.8;
+    animation: underlineFadeIn 1s ease;
 }
 
 /* Algorithm Sections (Generalized) */
@@ -55,9 +60,9 @@ h1::after, h2::after, h4::after {
 }
 
 .algo > div, .tri > div, .bi_directional > div {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #f7f9fc, #e6ecf8);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 100%;
     max-width: 750px;
@@ -88,7 +93,7 @@ h1::after, h2::after, h4::after {
     transform: rotate(0);
 }
 
-.algo > div:hover, .tri > div:hover, .bi_directional:hover , .BI > div:hover , .diff > div:hover , .Trifusions > div:hover {
+.algo > div:hover, .tri > div:hover, .bi_directional:hover, .BI > div:hover, .diff > div:hover, .Trifusions > div:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     background-color: #f8f8f8;
@@ -103,7 +108,7 @@ p {
     transition: color 0.3s ease;
 }
 
-.algo > div:hover p, .tri > div:hover p, .bi_directional > div:hover p .BI > div:hover p, .diff > div:hover p, .Trifusions > div:hover p{
+.algo > div:hover p, .tri > div:hover p, .bi_directional > div:hover p, .BI > div:hover p, .diff > div:hover p, .Trifusions > div:hover p {
     color: #555;
 }
 
@@ -113,21 +118,24 @@ img {
     margin: 20px auto;
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
 }
 
 img:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    opacity: 1;
 }
 
 /* Ordered List inside Bidirectional Search section */
 li {
     margin: 10px 0;
     transition: color 0.3s ease;
-    text-align: left; /* Centering does not suit list items */
+    text-align: left;
+    padding-left: 5px;
 }
 
 ol {
@@ -136,6 +144,8 @@ ol {
 
 ol li:hover {
     color: #1158aa;
+    background-color: rgba(17, 88, 170, 0.1);
+    border-radius: 5px;
 }
 
 /* Styling for the YouTube iframes */
@@ -143,14 +153,16 @@ iframe {
     display: block;
     margin: 20px auto;
     max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
 }
 
 iframe:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    opacity: 1;
 }
 
 /* Trifusion Section Specific */
@@ -161,6 +173,11 @@ h4 {
     text-align: center;
     color: #34495e;
     position: relative;
+    transition: color 0.3s ease;
+}
+
+h4:hover {
+    color: #1158aa;
 }
 
 h4::after {
@@ -214,5 +231,14 @@ div:last-of-type {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes underlineFadeIn {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 50px;
     }
 }
